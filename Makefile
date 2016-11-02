@@ -65,7 +65,7 @@ $(TARGET_A): $(OBJS)
 	$(AR) cqs $@ $?
 
 $(RULE): 
-	@echo -ne "$(foreach tar, $(SUFS),\n$(tar).d: $(tar)\n	$(CC) -M -MT $$<.o $$< > \$$@\n	@echo '	$(CC) -c -o \$$\$$@ \$$\$$<' >> \$$@ \n)" > $@
+	@echo "$(foreach tar, $(SUFS),\n$(tar).d: $(tar)\n	$(CC) -M -MT $$<.o $$< > \$$@\n	@echo '	$(CC) -c -o \$$\$$@ \$$\$$<' >> \$$@ \n)" > $@
 
 -include $(RULE)
 -include $(DEPS)
